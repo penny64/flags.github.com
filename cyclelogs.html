@@ -1,6 +1,7 @@
 <html><head>
-<link rel="stylesheet" type="text/css" href="../static/style.css" />
+<link rel="stylesheet" type="text/css" href="style.css" />
 <title>cyclelogs</title>
+<LINK REL="SHORTCUT ICON" HREF="http://www.jetstarforever.com/favicon.ico">
 </head>
 <body>
 <h1>cyclelogs.py</h1>
@@ -43,12 +44,10 @@ def cycle(infile):
     subprocess.call([mv, infile, _outfile])
 
 def cycleall(dir):
-    #print 'Cycle all'
     for root, dirs, files in os.walk(dir):
         for infile in files:
             if infile.count('.')&gt;=2: continue
             _fname = os.path.join(root, infile)
-            #print _fname
             cycle(_fname)
 
 if len(sys.argv)==2:
