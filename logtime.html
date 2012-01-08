@@ -1,0 +1,79 @@
+<html><head>
+<link rel="stylesheet" type="text/css" href="../static/style.css" />
+<title>logtime</title>
+</head>
+<body>
+<h1>logtime.py</h1>
+
+<p>I created logtime.py after reading about "time management" software on Facebook.
+I was interested enough to look up possible open-source alternatives, but felt they
+were too intrusive.</p>
+
+<p>logtime does not monitor your system or spy on you in any way.</p>
+
+<h2>Requirements</h2>
+
+<ul>
+<li>Python 2.7+ (Might work with earlier versions.)</li>
+<li><a href="http://cairoplot.sourceforge.net/index.html">CairoPlot</a>*</li>
+<li><a href="cyclelogs.html">cyclelogs.py</a> (Optional)</li>
+</ul>
+
+<p>*CairoPlot's website is garbage. <a href="https://launchpad.net/cairoplot">This might be better</a>.</p>
+
+<h2>Usage/Output</h2>
+
+<pre><code>logtime.py [option] [file]
+</code></pre>
+
+<ul>
+<li><a href="#advance">advance</a></li>
+<li><a href="#build">build</a></li>
+<li><a href="#close">close</a></li>
+<li><a href="#compile">compile</a></li>
+<li><a href="#list">list</a></li>
+</ul>
+
+<h3>advance <a id='advance'></a></h3>
+
+<pre><code>logtime.py advance
+</code></pre>
+
+<p>Starts a new log, but carries over the last entry from the previous day.
+Requires <a href="cyclelogs.html">cyclelogs.py</a>.</p>
+
+<h3>build <a id='build'></a></h3>
+
+<pre><code>logtime.py build
+</code></pre>
+
+<p>Creates the logfile. Erases all content.</p>
+
+<h3>close<a id='close'></a></h3>
+
+<pre><code>logtime.py close
+</code></pre>
+
+<p>Closes the logfile for archiving.</p>
+
+<h3>compile <a id='compile'></a></h3>
+
+<pre><code>logtime.py compile [output]
+</code></pre>
+
+<p>Outputs a piechart.</p>
+
+<h3>list <a id='list'></a></h3>
+
+<pre><code># logtime.py list
+00:00:01 Sat. January 2012: Python
+00:44:30 Sat. January 2012: Games
+02:13:24 Sat. January 2012: Offline
+11:21:50 Sat. January 2012: Internet
+12:21:59 Sat. January 2012: Offline
+15:00:00 Sat. January 2012: Games
+15:21:04 Sat. January 2012: Internet
+</code></pre>
+
+<p>Lists all logged entries made in the current day.</p>
+<hr />flags - 2012</body></html>

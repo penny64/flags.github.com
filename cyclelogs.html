@@ -1,0 +1,58 @@
+<html><head>
+<link rel="stylesheet" type="text/css" href="../static/style.css" />
+<title>cyclelogs</title>
+</head>
+<body>
+<h1>cyclelogs.py</h1>
+
+<p>cyclelogs.py was written to manage my ~/.logs/ folder,
+which acts as the dumping ground for logs that my various scripts write to.
+However, <a href="logtime.html">logtime.py</a> had an issue with calculating time differences between days,
+so the need for rotating logs became apparent.</p>
+
+<p>There might already be a script out there that does this, but I like writing my own, and this
+is cross-platform.</p>
+
+<h2>Requirements</h2>
+
+<ul>
+<li>Python 2.4+*</li>
+</ul>
+
+<p>*Note: I have not tested with 2.4, but that's the first version that included the subprocess module.</p>
+
+<h2>Windows</h2>
+
+<p>If you're on a Windows machine, the 'mv' variable must be changed to something like "copy".
+Actually, I have no idea, because Windows really does suck for these things. I suggest
+<a href="http://lifehacker.com/341950/belvedere-automates-your-self+cleaning-pc">Belvedere</a>, because
+it works pretty well.</p>
+
+<h2>Source</h2>
+
+<pre><code># cyclelogs.py
+import sys, os, subprocess, time
+
+timeformat = '%m%d%Y'
+mv = '/bin/mv'
+
+def cycle(infile):
+    _time = time.strftime(timeformat)
+    _outfile = '%s.%s' % (infile,_time)
+
+    subprocess.call([mv, infile, _outfile])
+
+def cycleall(dir):
+    #print 'Cycle all'
+    for root, dirs, files in os.walk(dir):
+        for infile in files:
+            if infile.count('.')&gt;=2: continue
+            _fname = os.path.join(root, infile)
+            #print _fname
+            cycle(_fname)
+
+if len(sys.argv)==2:
+    if sys.argv[1][len(sys.argv[1])-1] == os.sep: cycleall(sys.argv[1])
+    else: cycle(sys.argv[1])
+</code></pre>
+<hr />flags - 2012</body></html>
