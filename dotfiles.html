@@ -1,0 +1,84 @@
+<html><head>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<title>dotfiles</title>
+<LINK REL="SHORTCUT ICON" HREF="http://www.jetstarforever.com/favicon.ico">
+</head>
+<body>
+<h1>.dotfiles</h1>
+
+<p>These are my configuration files for various programs.</p>
+
+<h2>.vimrc</h2>
+
+<pre><code># .vimrc
+syntax on
+set t_Co=256
+colorscheme molokai
+
+set nocompatible
+set autoindent
+set mouse=a
+set number
+set numberwidth=2
+set statusline=%F%m%r%h%w\ (%{&amp;ff}){%Y}\ [%l,%v][%p%%]
+highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
+set cursorline
+highlight CursorLine term=none cterm=none ctermbg=235
+</code></pre>
+
+<h2>.zshrc</h2>
+
+<pre><code># .zshrc
+# Path to your oh-my-zsh configuration.
+export ZSH=$HOME/.oh-my-zsh
+
+# Set to the name theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# export ZSH_THEME="dieter_mod"
+export ZSH_THEME="dpree"
+
+# Set to this to use case-sensitive completion
+# export CASE_SENSITIVE="true"
+
+# Comment this out to disable weekly auto-update checks
+# export DISABLE_AUTO_UPDATE="true"
+
+# Uncomment following line if you want to disable colors in ls
+# export DISABLE_LS_COLORS="true"
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Example format: plugins=(rails git textmate ruby lighthouse)
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
+
+# Customize to your needs...
+alias pacman='sudo pacman-color'
+alias 7z='~/bin/7z'
+alias wget='wget -q'
+alias canto='canto -u'
+alias nano='vim'
+alias packer='sudo packer --noedit'
+alias logtime='python2 ~/code/logtime/logtime.py'
+alias makepage='python2 ~/bin/projectholo/makepage.py'
+
+function t() { 
+  if [ $# -eq 0 ]; then
+    /home/luke/code/todo.txt-cli/todo.sh -d /home/luke/.todo.cfg ls
+  else
+    /home/luke/code/todo.txt-cli/todo.sh -d /home/luke/.todo.cfg $* 
+  fi
+}
+
+function sysupdate() {
+    sudo pacman-color -Su
+    /bin/echo "updates.text = \"&lt;span color='white'&gt;Updates:&lt;/span&gt; 0\"" | /usr/bin/awesome-client
+}
+
+PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/bin/projectholo:"
+export PATH
+
+EDITOR="vim"
+export EDITOR
+</code></pre>
+<hr />flags - 2012</body></html>
