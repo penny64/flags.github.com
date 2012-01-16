@@ -1,0 +1,24 @@
+<html><head>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<title>projectholo</title>
+<LINK REL="SHORTCUT ICON" HREF="http://www.jetstarforever.com/favicon.ico">
+</head>
+<body>
+<h1>Project Holo</h1>
+
+<p>Project Holo is a set of scripts I've written to work in sync with cron. These are standard tasks that I just got tired of performing manually.</p>
+
+<h2>Warning</h2>
+
+<p>Some people might get upset over my "updates" script, thus, I won't be posting the second half of it, which runs every thirty minutes via root (pacman -Sy). Use at your own risk!</p>
+
+<h2>updates</h2>
+
+<pre><code># updates
+#!/bin/bash
+
+packages=$(/usr/bin/pacman -Qu | wc -l)
+
+/bin/echo "updates.text = \"&lt;span color='white'&gt;Updates:&lt;/span&gt; $packages\"" | /usr/bin/awesome-client
+</code></pre>
+<hr />flags - 2012</body></html>
