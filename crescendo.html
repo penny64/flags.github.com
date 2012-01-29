@@ -12,9 +12,15 @@
 
 <p>With each instance of Crescendo, both a client and server "node" are created. A search for other nodes on the network is then run, and the client connects to each one. The running node then communicates with nodes connected to a client, and a mesh-like network is created.</p>
 
+<h2>Download</h2>
+
+<p><a href="https://github.com/flags/Crescendo">Source</a></p>
+
+<p>Win32 binaries will be available at some point.</p>
+
 <h2>What Works?</h2>
 
-<p>Right now? Everything. An actual UI is next.</p>
+<p>Right now? Everything. An actual UI is also included for those more comfortable with GUIs.</p>
 
 <h2>"Isn't this a waste of time?"</h2>
 
@@ -23,4 +29,65 @@
 </code></pre>
 
 <p>It was a programming excercise I created for myself. I've learned quite a bit by doing it, and I plan to finish it.</p>
+
+<h1>Documentation</h1>
+
+<h2>Packets</h2>
+
+<p>In order for the client or server to accept an incoming packet, the following format must be used:</p>
+
+<pre><code>command::variable::value\r\n
+</code></pre>
+
+<h2>Commands</h2>
+
+<p>There are only two valid terms that can be used in the command portion of the packet: get and put.</p>
+
+<p>'get' -requests information from the server or client.
+'put' -sends data to the server or client.</p>
+
+<h2>Variables</h2>
+
+<p>'hnd' -Handshake. First required packet when connecting. Sent by node.</p>
+
+<pre><code>Usage:
+The value field is ignored but is still required. Send random letters or 'null'. Nodes will respond with a value of "okay" if the handshake was accepted.
+</code></pre>
+
+<p>'pwd' -Password. Required by private networks only.</p>
+
+<pre><code>Usage:
+A string must be passed to value. However, only private networks will check this. Required by nodes. Nodes will respond with a value of "okay" if the password is correct.
+</code></pre>
+
+<p>'inf' -Info. Final stage of connecting. Requests info from the node, which responds with a dictionary containing several variables.</p>
+
+<pre><code>Usage:
+The client does not need to send a value. Anything is accepted by the node. Nodes will respond with a value containing a dictionary that needs to be run through the json module.
+</code></pre>
+
+<p>'fil' -File. Requests a file. Value must be a valid filename that is being shared by the node.</p>
+
+<pre><code>Usage:
+'get': The client must send this command repeatably until a 'fie' packet is received from the node.
+'put': The node must send this command repeatably until there are zero bytes to read. A 'fie' packet is then sent to the client'
+</code></pre>
+
+<p>'fie' -File end. The node sends this when there are no bytes left to read.</p>
+
+<pre><code>Usage:
+The 'fie' portion of the packet speaks for itself. A random or empty value can be sent.
+</code></pre>
+
+<p>'fib' -File error. Sent by the node when an error occurs with the file.</p>
+
+<pre><code>Usage:
+Speaks for itself. Garbage data is needed for a value.
+</code></pre>
+
+<h2>Known Issues</h2>
+
+<ul>
+<li>Files can only be sent one at a time. If a node tries to send a file that is currently being sent to another client, only a part of the file will be sent.</li>
+</ul>
 <hr />flags - 2012</body></html>
