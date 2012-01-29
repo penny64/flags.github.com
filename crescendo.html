@@ -63,7 +63,7 @@ A string must be passed to value. However, only private networks will check this
 <p>'inf' -Info. Final stage of connecting. Requests info from the node, which responds with a dictionary containing several variables.</p>
 
 <pre><code>Usage:
-The client does not need to send a value. Anything is accepted by the node. Nodes will respond with a value containing a dictionary that needs to be run through the json module.
+The client does not need to send a value. Anything is accepted by the node. Nodes will respond with a value containing a dictionary that needs to be run through the json module. Broadcast nodes will also include a list of all nodes being broadcasted.
 </code></pre>
 
 <p>'fil' -File. Requests a file. Value must be a valid filename that is being shared by the node.</p>
@@ -84,6 +84,8 @@ The 'fie' portion of the packet speaks for itself. A random or empty value can b
 <pre><code>Usage:
 Speaks for itself. Garbage data is needed for a value.
 </code></pre>
+
+<p>'bro' -Broadcast. The client can send this to the node to request a spot on its broadcast list. If so, the node responds with "okay."</p>
 
 <h2>Known Issues</h2>
 
