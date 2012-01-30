@@ -87,6 +87,18 @@ Speaks for itself. Garbage data is needed for a value.
 
 <p>'bro' -Broadcast. The client can send this to the node to request a spot on its broadcast list. If so, the node responds with "okay."</p>
 
+<pre><code>Usage:
+'put': Clients can send this to apply for a spot on the node's broadcast list. Value must be 'host:ip'.
+'put': Nodes send this after a client has been added to the broadcast list.
+</code></pre>
+
+<p>'pin' -Ping. Used to make sure connections are still going through to a client/node.</p>
+
+<pre><code>Usage:
+'put': Clients respond with this. Value should be garbage data.
+'get': Nodes send this to request a ping from a client. Garbage value.
+</code></pre>
+
 <h2>Known Issues</h2>
 
 <ul>
