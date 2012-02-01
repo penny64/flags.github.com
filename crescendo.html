@@ -48,55 +48,55 @@
 
 <h2>Variables</h2>
 
-<p>'hnd' -Handshake. First required packet when connecting. Sent by node.</p>
+<p><code>hnd</code> -Handshake. First required packet when connecting. Sent by node.</p>
 
 <pre><code>Usage:
-The value field is ignored but is still required. Send random letters or 'null'. Nodes will respond with a value of "okay" if the handshake was accepted.
+The `value` field must be the security method used by the node. A value of `error` means the handshake was dropped.
 </code></pre>
 
-<p>'pwd' -Password. Required by private networks only.</p>
+<p><code>pwd</code> -Password. Required by private networks only.</p>
 
 <pre><code>Usage:
 A string must be passed to value. However, only private networks will check this. Required by nodes. Nodes will respond with a value of "okay" if the password is correct.
 </code></pre>
 
-<p>'inf' -Info. Final stage of connecting. Requests info from the node, which responds with a dictionary containing several variables.</p>
+<p><code>inf</code> -Info. Final stage of connecting. Requests info from the node, which responds with a dictionary containing several variables.</p>
 
 <pre><code>Usage:
 The client does not need to send a value. Anything is accepted by the node. Nodes will respond with a value containing a dictionary that needs to be run through the json module. Broadcast nodes will also include a list of all nodes being broadcasted.
 </code></pre>
 
-<p>'fil' -File. Requests a file. Value must be a valid filename that is being shared by the node.</p>
+<p><code>fil</code> -File. Requests a file. Value must be a valid filename that is being shared by the node.</p>
 
 <pre><code>Usage:
-'get': The client must send this command repeatably until a 'fie' packet is received from the node.
-'put': The node must send this command repeatably until there are zero bytes to read. A 'fie' packet is then sent to the client'
+`get`: The client must send this command repeatably until a 'fie' packet is received from the node.
+`put`: The node must send this command repeatably until there are zero bytes to read. A 'fie' packet is then sent to the client'
 </code></pre>
 
-<p>'fie' -File end. The node sends this when there are no bytes left to read.</p>
+<p><code>fie</code> -File end. The node sends this when there are no bytes left to read.</p>
 
 <pre><code>Usage:
-The 'fie' portion of the packet speaks for itself. A random or empty value can be sent.
+The `fie` portion of the packet speaks for itself. A random or empty value can be sent.
 </code></pre>
 
-<p>'fib' -File error. Sent by the node when an error occurs with the file.</p>
+<p><code>fib</code> -File error. Sent by the node when an error occurs with the file.</p>
 
 <pre><code>Usage:
 Speaks for itself. Garbage data is needed for a value.
 </code></pre>
 
-<p>'bro' -Broadcast. The client can send this to the node to request a spot on its broadcast list. If so, the node responds with "okay."</p>
+<p><code>bro</code> -Broadcast. The client can send this to the node to request a spot on its broadcast list. If so, the node responds with "okay."</p>
 
 <pre><code>Usage:
-'put': Clients can send this to apply for a spot on the node's broadcast list. Value must be 'host:ip'.
-'put': Nodes send this after a client has been added to the broadcast list.
+`put`: Clients can send this to apply for a spot on the node's broadcast list. Value must be `host:ip`.
+`put`: Nodes send this after a client has been added to the broadcast list.
 </code></pre>
 
-<p>'pin' -Ping. Used to make sure connections are still going through to a client/node.</p>
+<p><code>pin</code> -Ping. Used to make sure connections are still going through to a client/node.</p>
 
 <pre><code>Usage:
-'put': Clients respond with this. Value should be garbage data.
-'get': Nodes send this to request a ping from a client. Garbage value.
+`put`: Clients respond with this. Value should be garbage data.
+`get`: Nodes send this to request a ping from a client. Garbage value.
 </code></pre>
 
 <h2>Known Issues</h2>
