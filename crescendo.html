@@ -69,11 +69,11 @@ The client does not need to send a value. Anything is accepted by the node. Node
 <p><code>fil</code> -File. Requests a file. Value must be a valid filename that is being shared by the node.</p>
 
 <pre><code>Usage:
-`get`: The client must send this command repeatably until a 'fie' packet is received from the node.
-`put`: The node must send this command repeatably until there are zero bytes to read. A 'fie' packet is then sent to the client'
+`get`: The client must send this command repeatably until the entire file is received. The client drops to raw mode until the file is downloaded. Pings/Broadcasts are also stopped for this transaction (other clients will not notice, however.) A `fie` packet is then sent, telling the the node to restart pings/broadcasts to this client and to reset various file-related things. 
+`put`: The node must send this command repeatably until there are zero bytes to read.
 </code></pre>
 
-<p><code>fie</code> -File end. The node sends this when there are no bytes left to read.</p>
+<p><code>fie</code> -File end. The client sends this when there are no bytes left to read.</p>
 
 <pre><code>Usage:
 The `fie` portion of the packet speaks for itself. A random or empty value can be sent.
@@ -97,6 +97,13 @@ Speaks for itself. Garbage data is needed for a value.
 <pre><code>Usage:
 `put`: Clients respond with this. Value should be garbage data.
 `get`: Nodes send this to request a ping from a client. Garbage value.
+</code></pre>
+
+<p><code>fli</code> -File list. Not to be confused with <code>fil</code>. Requests a file list from the node.</p>
+
+<pre><code>Usage:
+`put`: Nodes send this in response to `get`. Must be a JSON'd list of files. See crescendo_server.py for info. Should send a value of `okay` when nothing is left to be sent.
+`get`: Asks node for the file list. Value is the point in the node's filelist you want to start at. The node should respond with 32 entries starting from that point.
 </code></pre>
 
 <h2>Known Issues</h2>
