@@ -1,0 +1,87 @@
+body {
+	background-color: #111111;
+	color: #bbbbbb;
+	margin-left: auto;
+	margin-right: auto;
+	width: 800px;	
+}
+
+footer {
+	color: #333333;
+	text-align: center;
+}
+
+hr {
+	border-color: #232323;
+	box-shadow: 3px 3px 2px black;
+}
+
+nav {
+	background-color: #151515;
+	margin-left: 10px;
+	box-shadow: 5px 5px 5px black;
+	padding: 8px 8px 8px 8px;
+}
+
+video {
+	margin-left: auto;
+    margin-right: auto;
+    display: block
+}
+
+input {
+	color: white;
+	background: #242424;
+	border: 1px solid #6960EC
+}
+
+textarea {
+	color: white;
+	background: #242424;
+	border: 1px solid #6960EC
+}
+
+image {
+	vertical-align: middle;
+}
+
+b {
+	color: white;
+}
+
+nav:hover {
+	background-color: #242424;
+}
+
+a:link {
+	color: #616D7E;
+}
+
+a:visited {
+	color: #616D7E;
+}
+
+.post-title {
+	margin-left: -15px;
+	margin-bottom: -15px;
+	color: #717171;
+	font-family: sans-serif;
+}
+
+.post {
+	margin-top: 15px;
+	background-color: #161616;
+	border-color: black;
+	padding: 6px 6px 6px 6px;
+	box-shadow: 5px 5px 5px black;
+}
+
+.post:hover {
+	background-color: #202020;
+	border-color: black;
+	padding: 6px 6px 6px 6px;
+}
+
+.logo {
+	color: #6960EC;
+}
