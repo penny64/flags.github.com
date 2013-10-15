@@ -1,0 +1,57 @@
+<html>
+<head>
+	<title>Asteroids Forever - by flags</title>
+	
+	<script type="text/javascript" src="scripts/input.js"></script>
+	<script type="text/javascript" src="scripts/ship.js"></script>
+	<script type="text/javascript" src="scripts/particles.js"></script>
+	<script type="text/javascript" src="scripts/background.js"></script>
+</head>
+
+<body>
+
+<div id="content">
+	<canvas style="border:1px solid #000000;" id="gamewindow" width="600" height="480"></canvas>
+</div>
+
+<script>
+	var c2 = document.getElementById('gamewindow').getContext('2d');
+	var stars = [[50, 50, 5]];
+	var i = 0;
+	
+	while (i<=20){
+		stars.push([Math.floor((Math.random()*640)+1), Math.floor((Math.random()*480)+1), Math.floor((Math.random()*3)+1)]);
+		i += 1;
+	}
+	
+	function run(){
+		c2.clearRect(0, 0, 640, 480);
+		
+		DrawStarfield(stars);
+		
+		for (var key in particles){
+			particles[key].move()
+			particles[key].collisions()
+			particles[key].draw()
+			
+			if (particles[key]._clean){
+				delete particles[key];
+			}
+		}
+		
+		player.move();
+		player.collisions();
+		player.draw();
+	}
+	
+	var _P_ID = 0;
+	var particles = {};
+	var player = new Ship(15, 15, 0.5);
+	
+	setup_input();
+
+	setInterval(run, 1000 / 30);
+</script>
+
+</body>
+</html>
