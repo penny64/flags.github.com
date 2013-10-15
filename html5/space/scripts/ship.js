@@ -5,18 +5,33 @@ function Ship(x, y, speed){
 	this.x_velocity = 0;
 	this.y_velocity = 0;
 	this.direction = 0;
+	this.turn = 0;
+	this.turn_speed = 5;
+	this.thrust_direction = 0;
 }
 
 Ship.prototype.move = function(){
+	if (this.turn == -1){
+		this.direction -= this.turn_speed;
+	} else if (this.turn == 1){
+		this.direction += this.turn_speed;
+	}
+	
+	if (this.thrust_direction == 1){
+		this.thrust(this.speed)
+	} else if (this.thrust_direction == -1){
+		this.thrust(-this.speed)
+	}
+	
 	this.x += this.x_velocity;
 	this.y += this.y_velocity;
 }
 
-Ship.prototype.thrust = function(){
+Ship.prototype.thrust = function(speed){
 	var rad = this.direction*(Math.PI/180)
 	
-	this.x_velocity += Math.cos(rad)*this.speed;
-	this.y_velocity += Math.sin(rad)*this.speed;
+	this.x_velocity += Math.cos(rad)*speed;
+	this.y_velocity += Math.sin(rad)*speed;
 	
 	new Particle(this.x, this.y, this.direction-180, 10);
 }
