@@ -23,6 +23,10 @@ function keydown(e)
 		player.thrust_direction = -1;
 	}
 	
+	if (e.keyCode==90){
+		player.shoot();
+	}
+	
 	console.log(e.keyCode);
 }
 

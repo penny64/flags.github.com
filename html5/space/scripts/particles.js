@@ -47,8 +47,7 @@ Particle.prototype.collisions = function(){
 
 Particle.prototype.draw = function(){
 	var c2 = document.getElementById('gamewindow').getContext('2d');
-	var rad = (this.direction+90)*(Math.PI/180);
-	var size = 10*(this.speed/this.start_speed);
+	var size = 7*(this.speed/this.start_speed);
 	
 	c2.strokeStyle = '#555555';
 	c2.beginPath();

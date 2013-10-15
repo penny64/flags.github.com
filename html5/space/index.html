@@ -6,6 +6,9 @@
 	<script type="text/javascript" src="scripts/ship.js"></script>
 	<script type="text/javascript" src="scripts/particles.js"></script>
 	<script type="text/javascript" src="scripts/background.js"></script>
+	<script type="text/javascript" src="scripts/space.js"></script>
+	<script type="text/javascript" src="scripts/weapon.js"></script>
+	<script type="text/javascript" src="scripts/numbers.js"></script>
 </head>
 
 <body>
@@ -16,8 +19,9 @@
 
 <script>
 	var c2 = document.getElementById('gamewindow').getContext('2d');
-	var stars = [[50, 50, 5]];
+	var stars = [];
 	var i = 0;
+	var level = new World();
 	
 	while (i<=20){
 		stars.push([Math.floor((Math.random()*640)+1), Math.floor((Math.random()*480)+1), Math.floor((Math.random()*3)+1)]);
@@ -37,16 +41,24 @@
 			if (particles[key]._clean){
 				delete particles[key];
 			}
+			
 		}
 		
+		//wep.direction += 1;
+		
+		level.tick();
 		player.move();
 		player.collisions();
 		player.draw();
+		level.draw();
 	}
 	
 	var _P_ID = 0;
 	var particles = {};
 	var player = new Ship(320, 240, 0.5);
+	var wep = new single_shot(100, 50);
+	
+	player.attach_entity(wep, 10, 5);
 	
 	setup_input();
 
