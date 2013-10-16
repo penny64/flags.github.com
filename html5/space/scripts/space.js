@@ -12,12 +12,17 @@ World.prototype.register_entity = function(entity){
 
 World.prototype.tick = function(){
 	for (var key in this.entities){
-		tick(this.entities[key]);
+		this.entities[key].tick(this.entities[key]);
+		
+		if (this.entities[key]._clean){
+			delete this.entities[key];
+			console.log("del");
+		}
 	}
 }
 
 World.prototype.draw = function(){
 	for (var key in this.entities){
-		draw_entity(this.entities[key]);
+		this.entities[key].draw(this.entities[key]);
 	}
 }

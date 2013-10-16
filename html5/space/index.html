@@ -9,6 +9,8 @@
 	<script type="text/javascript" src="scripts/space.js"></script>
 	<script type="text/javascript" src="scripts/weapon.js"></script>
 	<script type="text/javascript" src="scripts/numbers.js"></script>
+	<script type="text/javascript" src="scripts/bullet.js"></script>
+	<script type="text/javascript" src="scripts/ai.js"></script>
 </head>
 
 <body>
@@ -22,6 +24,8 @@
 	var stars = [];
 	var i = 0;
 	var level = new World();
+	var scale = 0//2.5;
+	//c2.scale(2.5, 2.5);
 	
 	while (i<=20){
 		stars.push([Math.floor((Math.random()*640)+1), Math.floor((Math.random()*480)+1), Math.floor((Math.random()*3)+1)]);
@@ -29,6 +33,11 @@
 	}
 	
 	function run(){
+		if (scale>1){
+			c2.scale(0.97, 0.97);
+			scale*=.97;
+		}
+		
 		c2.clearRect(0, 0, 640, 480);
 		
 		DrawStarfield(stars);
@@ -44,18 +53,21 @@
 			
 		}
 		
-		//wep.direction += 1;
-		
 		level.tick();
+		enemy.think();
+		enemy.move();
 		player.move();
-		player.collisions();
+		collision(enemy);
+		collision(player);
+		enemy.draw();
 		player.draw();
 		level.draw();
 	}
 	
 	var _P_ID = 0;
 	var particles = {};
-	var player = new Ship(320, 240, 0.5);
+	var player = new Ship(320, 240, 0.5, 1);
+	var enemy = new Ship(320, 240, 0.5, 0);
 	var wep = new single_shot(100, 50);
 	
 	player.attach_entity(wep, 10, 5);

@@ -1,9 +1,10 @@
 function Particle(x, y, direction, speed){
 	_P_ID += 1;
 	
-	this.x = x+Math.floor((Math.random()*5)+1);
-	this.y = y+Math.floor((Math.random()*5)+1);
-	this.direction = direction+Math.floor((Math.random()*5)+1)-+Math.floor((Math.random()*5)+1);
+	this.size = 4;
+	this.x = x+this.size/2+Math.floor((Math.random()*5)+1);
+	this.y = y+this.size/2+Math.floor((Math.random()*5)+1);
+	this.direction = direction+Math.floor((Math.random()*5)+1)-Math.floor((Math.random()*5)+1);
 	this.start_speed = speed;
 	this.speed = speed;
 	this.friction = 0.98;
@@ -47,7 +48,7 @@ Particle.prototype.collisions = function(){
 
 Particle.prototype.draw = function(){
 	var c2 = document.getElementById('gamewindow').getContext('2d');
-	var size = 7*(this.speed/this.start_speed);
+	var size = this.size*(this.speed/this.start_speed);
 	
 	c2.strokeStyle = '#555555';
 	c2.beginPath();

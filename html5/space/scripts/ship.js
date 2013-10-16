@@ -1,6 +1,7 @@
-function Ship(x, y, speed){
+function Ship(x, y, speed, player){
 	this.x = x;
 	this.y = y;
+	this.player = player;
 	this.speed = speed;
 	this.x_velocity = 0;
 	this.y_velocity = 0;
@@ -8,11 +9,16 @@ function Ship(x, y, speed){
 	this.turn = 0;
 	this.turn_speed = 5;
 	this.thrust_direction = 0;
+	this.shooting = false;
 	this.attachments = {};
+	this.size = 5
 	this._A_ID = 0;
 }
 
 Ship.prototype.move = function(){
+	if (this.shooting){
+		this.shoot();
+	}
 	if (this.turn == -1){
 		this.direction -= this.turn_speed;
 	} else if (this.turn == 1){
@@ -56,17 +62,17 @@ Ship.prototype.thrust = function(speed){
 	}
 }
 
-Ship.prototype.collisions = function(){
-	if (this.x >= 660) {
-		this.x = 0;
-	} else if (this.x < -20) {
-		this.x = 660;
+function collision(entity){
+	if (entity.x >= 660) {
+		entity.x = 0;
+	} else if (entity.x < -20) {
+		entity.x = 660;
 	}
 	
-	if (this.y > 500) {
-		this.y = -20;
-	} else if (this.y < -20) {
-		this.y = 500;
+	if (entity.y > 500) {
+		entity.y = -20;
+	} else if (entity.y < -20) {
+		entity.y = 500;
 	}
 }
 
@@ -86,9 +92,9 @@ Ship.prototype.draw = function(){
 	
 	c2.fillStyle = '#555555';
 	c2.beginPath();
-	c2.moveTo(0, -15);
-	c2.lineTo(15, 15);
-	c2.lineTo(-15, 15);
+	c2.moveTo(0, -this.size);
+	c2.lineTo(this.size, this.size);
+	c2.lineTo(-this.size, this.size);
 	c2.closePath();
 	c2.fill();
 	
