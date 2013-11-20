@@ -1,0 +1,81 @@
+<html>
+<head>
+	<title>Plane Test - by flags</title>
+	
+	<script type="text/javascript" src="scripts/input.js"></script>
+	<script type="text/javascript" src="scripts/ship.js"></script>
+	<script type="text/javascript" src="scripts/particles.js"></script>
+	<script type="text/javascript" src="scripts/background.js"></script>
+	<script type="text/javascript" src="scripts/space.js"></script>
+	<script type="text/javascript" src="scripts/weapon.js"></script>
+	<script type="text/javascript" src="scripts/numbers.js"></script>
+	<script type="text/javascript" src="scripts/bullet.js"></script>
+	<script type="text/javascript" src="scripts/ai.js"></script>
+</head>
+
+<body>
+
+<div id="content">
+	<canvas style="border:1px solid #000000;" id="gamewindow" width="1024" height="480"></canvas>
+</div>
+
+<script>
+	var c2 = document.getElementById('gamewindow').getContext('2d');
+	var stars = [];
+	var i = 0;
+	var level = new World();
+	var scale = 0//2.5;
+	//c2.scale(2.5, 2.5);
+	
+	while (i<=20){
+		stars.push([Math.floor((Math.random()*640)+1), Math.floor((Math.random()*480)+1), Math.floor((Math.random()*3)+1)]);
+		i += 1;
+	}
+	
+	function run(){
+		if (scale>1){
+			c2.scale(0.97, 0.97);
+			scale*=.97;
+		}
+		
+		c2.clearRect(0, 0, 1024, 480);
+		
+		DrawStarfield(stars);
+		
+		for (var key in particles){
+			particles[key].move()
+			particles[key].collisions()
+			particles[key].draw()
+			
+			if (particles[key]._clean){
+				delete particles[key];
+			}
+			
+		}
+		
+		level.tick();
+		//enemy.think();
+		enemy.move();
+		player.move();
+		collision(enemy);
+		collision(player);
+		enemy.draw();
+		player.draw();
+		level.draw();
+	}
+	
+	var _P_ID = 0;
+	var particles = {};
+	var player = new Ship(32, 460, 0.2, 1);
+	var enemy = new Ship(320, 240, 0.2, 0);
+	//var wep = new single_shot(100, 50);
+	
+	//player.attach_entity(wep, 10, 5);
+	
+	setup_input();
+
+	setInterval(run, 1000 / 30);
+</script>
+
+</body>
+</html>
