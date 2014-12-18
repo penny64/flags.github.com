@@ -79,9 +79,19 @@ simg
 	background-color:#404040;
 }
 
-.content > img {
+.image-box {
+	min-width: 100%;
+	padding-left: 0px;
+	margin-right: 300px;
+}
+
+.image-box > img {
 	margin-bottom: -14px;
-	min-width: 99.9%;
+	margin-right: -15px;
+	min-width: 99.5%;
+	max-width: 99.5%;
+	height: auto;
+	margin-left: -15px;
 }
 
 .post
