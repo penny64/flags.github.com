@@ -80,10 +80,8 @@ simg
 }
 
 .content > img {
-	padding-right: 15px;
 	margin-bottom: -14px;
-	margin-left: 2px;
-	min-width: 100%;
+	min-width: 99.9%;
 }
 
 .post
