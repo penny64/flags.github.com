@@ -79,6 +79,13 @@ simg
 	background-color:#404040;
 }
 
+.content > img {
+	padding-right: 15px;
+	margin-bottom: -14px;
+	margin-left: 2px;
+	min-width: 100%;
+}
+
 .post
 {
 	background-color:#303030;
