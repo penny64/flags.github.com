@@ -43,6 +43,42 @@ simg
 	margin-bottom: 1em;
 }
 
+.content-holder {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 1024px;
+	background-color:#303030;
+	color: #BFBFBF;
+	text-indent:15px;
+}
+
+.main-menu > ul, .main-menu > ul > li > a {
+	background-color:#505050;
+	color: #BFBFBF;
+}
+
+.main-menu > ul > li > a:hover {
+	background-color: #505050;
+	color: #EFEFEF;
+}
+
+.content {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 800px;
+	color: #BFBFBF;
+	text-indent:15px;
+	font-size: 14px;
+}
+
+.content > p {
+	padding-top: 14px;
+	padding-bottom: 14px;
+	padding-left: 10px;
+	padding-right: 10px;
+	background-color:#404040;
+}
+
 .post
 {
 	background-color:#303030;
