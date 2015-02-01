@@ -1,7 +1,8 @@
 body
 {
-	background-color:#242424;
+	background-image: url("images/background.png");
 	color:#F6F3E8;
+	padding-top: 24px;
 }
 
 h1
@@ -129,12 +130,11 @@ simg
 	padding-top:-25px;
 }
 
-.foot
+.footer
 {
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
-	color: #777777;
-	width: 750px;
-	background-color: #2D2D2D;
+	padding-bottom: 5px;
+	color: #555555;
 }
