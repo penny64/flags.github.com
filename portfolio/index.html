@@ -1,0 +1,223 @@
+<html>
+<head>
+	<title>Luke Martin - Game Developer</title>
+	<!-- FAVICON? -->
+	<link href='http://fonts.googleapis.com/css?family=Rokkitt' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:600|Crimson+Text' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+
+	<style>
+	body {
+		width: 1280px;
+		margin-left: auto;
+		margin-right: auto;
+		background: 
+		    linear-gradient(
+		      rgba(25, 20, 20, 0.9), 
+		      rgba(25, 20, 20, 0.9)
+		    ),
+		    url(images/background.png);
+	}
+
+	h1, h2, h3, p {
+		font-family: 'Rokkitt', serif;
+	}
+
+	h1, h3, span {
+		color: white;
+	}
+
+	span {
+		font-family: 'Crimson Text', serif;
+	}
+
+	h2 {
+		color: #cccccc;
+	}
+
+	hr {
+		border-color: #444444;
+		background: #444444;
+		width: 64px;
+	}
+
+	img {
+		padding-bottom: 20px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	a {
+		color: rgb(70, 130, 200);
+	}
+
+	.shade-bar {
+		background: 
+		    linear-gradient(
+		      rgba(45, 20, 20, 0), 
+		      rgba(25, 20, 20, 0.9)
+		    );
+		padding-top: 10px;
+		padding-bottom: 10px;
+		width: 75%;
+	}
+
+	.title {
+		color: #88aa88;
+		background: rgba(35, 35, 35, 0.55);
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.center {
+		margin-left: auto;
+		margin-right: auto;
+		text-align: center;
+	}
+
+	.content {
+		background: rgba(15, 10, 10, 0.85);
+		padding-top: 5px;
+		color: white;
+	}
+
+	.content > .text {
+		margin-top: -15px;
+		margin-left: -15px;
+		text-align: left;
+	}
+
+	.content > .text > ul {
+		color: rgb(140, 140, 140);
+	}
+
+	.content-right {
+		background: rgba(25, 20, 20, 0.85);
+		padding-top: 5px;
+		color: white;
+	}
+
+	.content-right > .text {
+		margin-top: -15px;
+		margin-left: 15px;
+		text-align: left;
+	}
+
+	.content-right > .text > ul {
+		color: rgb(140, 140, 140);
+	}
+
+	.title-right {
+		color: #88aa88;
+		background: rgba(35, 35, 35, 0.55);
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	</style>
+</head>
+<body>
+	</br>
+	<div class="center shade-bar">
+		<h1>Luke Martin</h1>
+		<h2>Game Engines / Graphics / AI / Procedural Generation</h2>
+	</div>
+	</br>
+	<div class="pure-g">
+		<div class="pure-u-3-5">
+			<div class="center content pure-g">
+				<div class="pure-u-1-1">
+					<h1 class="title">Torch!</h1>
+				</div>
+				<div class="pure-u-1-2">
+					<img class="pure-img" style="width: 320px; height: auto;" src="http://41.media.tumblr.com/ec5ed9e0836e70c475fb8187c5f59eba/tumblr_nkofiqoCNi1rtsn5no1_1280.png">
+				</div>
+				<div class="pure-u-1-2 text">
+					<p>Action/RPG featuring procedural level generation, unique combat system, and lighting effects.</p>
+					<ul>
+						<li>Developed in C using a custom Entity Component System.</li>
+						<li>libtcod for graphics.</li>
+					</ul>
+
+					<div class="pure-u-1-4 text">
+						<pre>Test1</pre>
+					</div>
+					<div class="pure-u-1-4 text">
+						<pre>Test2</pre>
+					</div>
+					
+				</div>
+			</div>
+
+			</br>
+
+			<div class="center content pure-g">
+				<div class="pure-u-1-1">
+					<h1 class="title-right">GOAPy</h1>
+				</div>
+
+				<div class="pure-u-1-1">
+					<a href="https://github.com/flags/GOAPy">GitHub</a> - <a href="https://github.com/flags/GOAPy/blob/master/example.py">Example</a></br></br>
+				</div>
+				
+				<div class="pure-u-1-2">
+					<img class="pure-img" style="width: 320px; height: auto;" src="images/goapy.png">
+				</div>
+				<div class="pure-u-1-2 text">
+					<p>GOAPy is a pure-Python implementation of Goal-Oriented Action Planning, a generic architecture for autonomous AI.</p>
+					<p>By taking the current state of the AI (e.g.: Hungry? Tired?) and their desired state (e.g.: Not tired) a "plan" is generated to take the AI from their current state to their goal state by considering a list of actions. In this case, the AI will discover that in order to sleep, they must first find and consume food, potentially leading to a complex course of action that involves going shopping, cooking, ordering pizza, taking a shower, etc.</p>
+				</div>
+			</div>
+
+			</br>
+
+			<div class="center content pure-g">
+				<div class="pure-u-1-1">
+					<h1 class="title">Reactor 3 - The Dead World</h1>
+				</div>
+
+				<div class="pure-u-1-1">
+					<a href="https://github.com/flags/Reactor-3">GitHub</a></br></br>
+				</div>
+
+				<div class="pure-u-1-2">
+					<img class="pure-img" style="width: 320px; height: auto;" src="http://41.media.tumblr.com/ec5ed9e0836e70c475fb8187c5f59eba/tumblr_nkofiqoCNi1rtsn5no1_1280.png">
+				</div>
+				
+				<div class="pure-u-1-2 text">
+					<p>Open-world survival simulator set in a post-apocalyptic Europe. Features complex NPC behavior, detailed damage model, and procedurally generated assets. Developed for two years using Python in addition to Cython-compiled modules.</p>
+					<ul>
+						<li>Living, breathing world: NPCs loot, manage items, and participate in a large-scale battle between factions.</li>
+						<li>Day/night cycle with weather effects.</li>
+						<li>Particle system capable of dynamic lighting.</li>
+						<li>Huge open-world filled with towns, military outposts, and other landmarks.</li>
+						<li>Basic mod support - create items and lifeforms to inhabit the world and script their behaviors.</li>
+					</ul>
+
+					<div class="pure-u-1-4 text">
+						<pre>Test1</pre>
+					</div>
+					<div class="pure-u-1-4 text">
+						<pre>Test2</pre>
+					</div>
+					
+				</div>
+			</div>
+
+			</br>
+		</div>
+		<div class="pure-u-2-5">
+			<div class="center content-right pure-g">
+				<div class="pure-u-1-1">
+					<h1 class="title-right">Skills</h1>
+				</div>
+
+				<div class="pure-u-1 text">
+					<p>Shit!</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
