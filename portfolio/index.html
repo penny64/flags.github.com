@@ -97,6 +97,16 @@
 	.content > .text > ul {
 		color: rgb(140, 140, 140);
 	}
+	
+	.content > .left-text {
+		margin-top: -15px;
+		margin-left: 15px;
+		text-align: left;
+	}
+	
+	.content > .left-text > ul {
+		color: rgb(140, 140, 140);
+	}
 
 	.content-right {
 		background: rgba(25, 20, 20, 0.85);
@@ -134,23 +144,42 @@
 		<div class="pure-u-3-5">
 			<div class="center content pure-g">
 				<div class="pure-u-1-1">
+					<h1 class="title">First...</h1>
+				</div>
+				<div class="pure-u-1-2 text">
+					<img class="pure-img" style="width: 320px; height: auto;" src="images/torch_4.png">
+					<img class="pure-img" style="width: 320px; height: auto;" src="images/r3_loop.gif">
+				</div>
+				<div class="pure-u-1-2 text">
+					<p>I've been developing games in some capacity for about ten years, getting my start as early as elementary school. Only recently have I decided to take it on as a career, and this summer I will be working on publishing my first major game - "Torch!"</p>
+					<p>Roguelikes are a genre of games that focus on a core set of features. I find these parameters both fun and challenging to work in, and have adopted them into most of my projects.</p>
+					<ul>
+						<li>Randomly generated levels. Each time you play the game you travel through a different world, with different items, randomized enemies, and traps. No experience is the same as the last. This creates an incentive to play the game many times over.</li>
+						<li>Like Dungeons and Dragons, the player is able to build a unique character with its own strengths and weaknesses. The catch: once their character dies, they are gone forever. Hours of progress can be lost with a single mistake - however, many people prefer this brutal spike in difficulty.</li>
+					</ul>
+					<p>With these things in mind, I've set out to create games that are both extremely challenging and rewarding. And despite not having much in the way of art, I work in a very minimal (but visually pleasing) style that uses only letters and symbols to build lush, rich worlds.</p>
+				</div>
+				
+				<div class="pure-u-1-1">
 					<h1 class="title">Torch!</h1>
 				</div>
+				
 				<div class="pure-u-1-2">
 					<img class="pure-img" style="width: 320px; height: auto;" src="http://41.media.tumblr.com/ec5ed9e0836e70c475fb8187c5f59eba/tumblr_nkofiqoCNi1rtsn5no1_1280.png">
 				</div>
+				
 				<div class="pure-u-1-2 text">
-					<p>Action/RPG featuring procedural level generation, unique combat system, and lighting effects.</p>
+					<p>A coffee-break roguelike/RPG designed to place emphasis on player movement and positioning. Features a unique combat system and randomly generated levels, puzzles, and items for near-infinite replayability. Written in C using the <a href="http://roguecentral.org/doryen/libtcod/">libTCOD</a> graphics library.</p>
 					<ul>
-						<li>Developed in C using a custom Entity Component System.</li>
-						<li>libtcod for graphics.</li>
+						<li>Unique weapons: Daggers, spears, and swords each require the player to approach combat in a different way.</li>
+						<li>Not your average roguelike. Torch focuses on building brightly-colored levels that are as entertaining to traverse as they are to look at.</li>
 					</ul>
 
 					<div class="pure-u-1-4 text">
-						<pre>Test1</pre>
+						<img class="pure-img" src="images/torch_2.png">
 					</div>
 					<div class="pure-u-1-4 text">
-						<pre>Test2</pre>
+						<img class="pure-img" src="images/torch_3.png">
 					</div>
 					
 				</div>
@@ -173,6 +202,39 @@
 				<div class="pure-u-1-2 text">
 					<p>GOAPy is a pure-Python implementation of Goal-Oriented Action Planning, a generic architecture for autonomous AI.</p>
 					<p>By taking the current state of the AI (e.g.: Hungry? Tired?) and their desired state (e.g.: Not tired) a "plan" is generated to take the AI from their current state to their goal state by considering a list of actions. In this case, the AI will discover that in order to sleep, they must first find and consume food, potentially leading to a complex course of action that involves going shopping, cooking, ordering pizza, taking a shower, etc.</p>
+				</div>
+			</div>
+
+			</br>
+			
+			<div class="center content pure-g">
+				<div class="pure-u-1-1">
+					<h1 class="title">Insurgence: Shadow Operation</h1>
+				</div>
+
+				<div class="pure-u-1-1">
+					<a href="https://github.com/flags/r3-tdw">GitHub</a></br></br>
+				</div>
+
+				<div class="pure-u-1-2">
+					<img class="pure-img" style="width: 320px; height: auto;" src="images/insurgence_1.png">
+				</div>
+				
+				<div class="pure-u-1-2 text">
+					<p>Prototype developed to experiment with a mix of turn-based strategy, squad-based combat AI, and procedural building generation. Developed using the second iteration of a custom Entity Component System.</p>
+					<ul>
+						<li>Modular building generation: Given a list of rooms and their attributes, an entire floor-plan is generated and constructed, then rendered in-game.</li>
+						<li>Adaptive Enemy AI: Using GOAPy, AI squad commanders can position their units in strategically-critical positions, evade attacks, or ambush the player.</li>
+						<li>Asymmetric multiprocessing: CPU-heavy operations can be offloaded to a secondary process, allowing graphics rendering to continue while numbers are being crunched.</li>
+					</ul>
+
+					<div class="pure-u-1-4 text">
+						<img class="pure-img" style="width: 320px; height: auto;" src="images/insurgence_2.png">
+					</div>
+					<div class="pure-u-1-4 text">
+						<img class="pure-img" style="width: 320px; height: auto;" src="images/insurgence_3.png">
+					</div>
+					
 				</div>
 			</div>
 
